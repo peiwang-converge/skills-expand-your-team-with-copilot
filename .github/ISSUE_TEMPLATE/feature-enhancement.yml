@@ -1,0 +1,145 @@
+name: 🚀 Feature Enhancement Request
+description: Request a new feature or enhancement for the school activities system
+title: "[FEATURE] "
+labels: ["enhancement", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to request a feature enhancement! This template will help you provide all the necessary information for our Copilot coding agent to understand and implement your request.
+
+  - type: dropdown
+    id: feature-category
+    attributes:
+      label: Feature Category
+      description: What type of feature enhancement is this?
+      options:
+        - User Interface (UI) Improvement
+        - New Functionality
+        - Performance Enhancement
+        - Accessibility Improvement
+        - Mobile/Responsive Design
+        - Data Management
+        - Security Enhancement
+        - Integration with External Service
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: affected-area
+    attributes:
+      label: Affected Area
+      description: Which part of the system would this feature affect?
+      options:
+        - Student Activities Page
+        - Activity Details/Sign-up
+        - Navigation/Menu
+        - User Authentication
+        - Database/Backend
+        - Mobile Interface
+        - Admin Panel
+        - Entire Application
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-description
+    attributes:
+      label: Problem Description
+      description: Clearly describe the problem or need this feature addresses
+      placeholder: |
+        Example: Students have difficulty finding activities that match their skill level because all activities are displayed together without any filtering options.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: Describe your idea for how this feature should work
+      placeholder: |
+        Example: Add a filter sidebar that allows students to filter activities by difficulty level (Beginner, Intermediate, Advanced) and show an "All Levels" option for activities without specified difficulty.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: List the specific requirements that must be met for this feature to be considered complete
+      placeholder: |
+        - [ ] Add difficulty level field to activity data model (optional field)
+        - [ ] Create filter sidebar with difficulty options
+        - [ ] Activities without difficulty level should show under "All Levels"
+        - [ ] Filter should update the displayed activities in real-time
+        - [ ] Filter state should be preserved when navigating between pages
+      value: "- [ ] "
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How important is this feature for your teaching needs?
+      options:
+        - High - Needed for core teaching functionality
+        - Medium - Would significantly improve teaching experience
+        - Low - Nice to have enhancement
+    validations:
+      required: true
+
+  - type: dropdown
+    id: target-users
+    attributes:
+      label: Target Users
+      description: Who would primarily benefit from this feature?
+      options:
+        - Students
+        - Teachers/Faculty
+        - Administrators
+        - Parents/Guardians
+        - All Users
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context and Constraints
+      description: Provide any additional information, limitations, or requirements
+      placeholder: |
+        - Design should match existing school color scheme (white and lime green)
+        - Feature should work on both desktop and mobile devices
+        - Should not break existing functionality
+        - Consider accessibility for students with disabilities
+    validations:
+      required: false
+
+  - type: textarea
+    id: implementation-hints
+    attributes:
+      label: Implementation Hints (Optional)
+      description: If you have any technical suggestions or know of similar implementations, share them here
+      placeholder: |
+        - Similar filtering functionality exists on popular e-commerce sites
+        - Could use dropdown menus or checkbox filters
+        - May need to update the database schema to include difficulty levels
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      description: Please confirm you have provided sufficient information
+      options:
+        - label: I have provided a clear problem description
+          required: true
+        - label: I have specified concrete acceptance criteria
+          required: true
+        - label: I understand this request will be handled by an automated coding agent
+          required: true

@@ -1,0 +1,197 @@
+name: 🐛 Bug Report
+description: Report a bug or issue with the school activities system
+title: "[BUG] "
+labels: ["bug", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a bug! This template will help you provide all the necessary information for our Copilot coding agent to understand and fix the issue.
+
+  - type: dropdown
+    id: bug-severity
+    attributes:
+      label: Bug Severity
+      description: How severe is this bug?
+      options:
+        - Critical - System is unusable or major functionality is broken
+        - High - Important functionality is broken but workarounds exist
+        - Medium - Some functionality is broken but doesn't block main tasks
+        - Low - Minor issue or cosmetic problem
+    validations:
+      required: true
+
+  - type: dropdown
+    id: affected-area
+    attributes:
+      label: Affected Area
+      description: Which part of the system is affected by this bug?
+      options:
+        - Student Activities Page
+        - Activity Sign-up Process
+        - User Authentication/Login
+        - Navigation/Menu
+        - Mobile Interface
+        - Database/Backend
+        - Page Loading/Performance
+        - Visual Design/Layout
+        - Entire Application
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug Description
+      description: Clearly describe what is happening vs. what should happen
+      placeholder: |
+        Example: When students click the "Sign Up" button for an activity, the page shows a loading spinner but never completes the sign-up process. The button should successfully register the student for the activity and show a confirmation message.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: List the exact steps to reproduce this bug
+      placeholder: |
+        1. Go to the activities page
+        2. Click on any activity card
+        3. Click the "Sign Up" button
+        4. Observe that the loading spinner appears
+        5. Wait for 30+ seconds - nothing happens
+      value: |
+        1. 
+        2. 
+        3. 
+        4. 
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: What should happen instead?
+      placeholder: |
+        The sign-up should complete within 3-5 seconds and show a success message like "Successfully signed up for [Activity Name]!"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual Behavior
+      description: What actually happens?
+      placeholder: |
+        The page shows a loading spinner indefinitely and the student is never registered for the activity.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How often does this happen?
+      description: Is this bug consistent or intermittent?
+      options:
+        - Always - Happens every time
+        - Often - Happens most of the time
+        - Sometimes - Happens occasionally
+        - Rarely - Hard to reproduce
+        - Unknown - Not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browsers-affected
+    attributes:
+      label: Browsers Affected
+      description: Which browsers have you tested where this bug occurs?
+      multiple: true
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Mobile Safari (iOS)
+        - Mobile Chrome (Android)
+        - Unknown/Not tested
+    validations:
+      required: true
+
+  - type: dropdown
+    id: devices-affected
+    attributes:
+      label: Devices Affected
+      description: Which types of devices show this bug?
+      multiple: true
+      options:
+        - Desktop/Laptop
+        - Tablet
+        - Mobile Phone
+        - Unknown/Not tested
+    validations:
+      required: true
+
+  - type: textarea
+    id: error-messages
+    attributes:
+      label: Error Messages
+      description: Include any error messages you see (from browser console, pop-ups, etc.)
+      placeholder: |
+        If you see any error messages, copy and paste them here exactly as they appear.
+        
+        To check browser console:
+        - Chrome/Firefox: Press F12, click "Console" tab
+        - Safari: Enable Developer menu, then Develop > Show Web Inspector
+    validations:
+      required: false
+
+  - type: textarea
+    id: impact-description
+    attributes:
+      label: Impact on Teaching/Learning
+      description: How does this bug affect your ability to teach or students' ability to learn?
+      placeholder: |
+        Example: Students cannot sign up for activities, which prevents them from participating in extracurricular programs. This affects approximately 200 students who want to join activities this semester.
+    validations:
+      required: true
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: Current Workaround
+      description: Is there any way to work around this issue temporarily?
+      placeholder: |
+        Example: Teachers are manually tracking sign-ups on paper and entering them later, but this is time-consuming and error-prone.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other information that might help fix this bug
+      placeholder: |
+        - When did this bug first appear?
+        - Does it happen with specific activities or all activities?
+        - Are there any patterns you've noticed?
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      description: Please confirm you have provided sufficient information
+      options:
+        - label: I have provided clear steps to reproduce the bug
+          required: true
+        - label: I have described the expected vs actual behavior
+          required: true
+        - label: I have specified which browsers/devices are affected
+          required: true
+        - label: I understand this bug report will be handled by an automated coding agent
+          required: true
