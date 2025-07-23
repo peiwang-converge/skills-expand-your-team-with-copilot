@@ -10,6 +10,25 @@ Remember, it's self-paced so feel free to take a break! ☕️
 
 [![](https://img.shields.io/badge/Go%20to%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/peiwang-converge/skills-expand-your-team-with-copilot/issues/1)
 
+## 🚀 Terraform CI/CD Pipeline
+
+This repository includes a complete Terraform CI/CD pipeline with:
+
+- 🔍 **Security scanning** with Checkov (non-blocking)
+- 🏗️ **Multi-environment deployment** (dev → qa → prod)
+- ⏳ **Manual approval gates** for QA and production
+- 🛡️ **Infrastructure isolation** with separate state files
+
+### Quick Links
+- 📖 [Complete Setup Guide](docs/terraform-cicd-setup.md)
+- ⚡ [Quick Reference](docs/deployment-quick-reference.md)
+- 🏗️ [Terraform Documentation](terraform/README.md)
+
+### Deployment Flow
+```
+📝 Push → 🔍 Security Scan → 🚀 Dev → ⏳ QA Approval → 🚀 QA → ⏳ Prod Approval → 🚀 Prod
+```
+
 ## 👩‍🏫 For Teachers
 
 Need to request changes, report bugs, or suggest improvements? We've created easy-to-use issue templates that guide you through providing all the information needed for our AI coding agent to help.
