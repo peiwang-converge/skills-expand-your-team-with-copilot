@@ -1,25 +1,25 @@
 /* Color palette */
 :root {
-  /* Primary colors */
-  --primary: #1a237e;
-  --primary-light: #534bae;
-  --primary-dark: #000051;
-  --primary-text: #ffffff;
+  /* Primary colors - Lime Green School Colors */
+  --primary: #32cd32;
+  --primary-light: #66dd66;
+  --primary-dark: #228b22;
+  --primary-text: #000000;
 
   /* Secondary colors */
-  --secondary: #ff6f00;
-  --secondary-light: #ffa040;
-  --secondary-dark: #c43e00;
-  --secondary-text: #ffffff;
+  --secondary: #32cd32;
+  --secondary-light: #66dd66;
+  --secondary-dark: #228b22;
+  --secondary-text: #000000;
 
   /* Neutral colors */
-  --background: #f5f5f5;
+  --background: #ffffff;
   --surface: #ffffff;
   --text-primary: #333333;
   --text-secondary: #666666;
   --border: #e0e0e0;
   --border-light: #f0f0f0;
-  --border-focus: #d0d0d0;
+  --border-focus: #32cd32;
 
   /* Feedback colors */
   --success: #2e7d32;
@@ -663,4 +663,66 @@ footer {
 
 #logout-button:hover {
   background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Git-style animated branch background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(45deg, transparent 48%, #32cd32 49%, #32cd32 51%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, #32cd32 49%, #32cd32 51%, transparent 52%),
+    linear-gradient(135deg, transparent 48%, #66dd66 49%, #66dd66 51%, transparent 52%);
+  background-size: 100px 100px, 120px 120px, 80px 80px;
+  background-position: 0 0, 30px 30px, 60px 60px;
+  opacity: 0.05;
+  z-index: -1;
+  animation: gitBranches 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes gitBranches {
+  0% {
+    background-position: 0 0, 30px 30px, 60px 60px;
+  }
+  100% {
+    background-position: 100px 100px, 130px 130px, 160px 160px;
+  }
+}
+
+/* Mascot styling */
+.mascot {
+  max-width: 80px;
+  height: auto;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.mascot:hover {
+  opacity: 1;
+}
+
+.header-mascots {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .header-mascots {
+    position: static;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .mascot {
+    max-width: 60px;
+  }
 }
