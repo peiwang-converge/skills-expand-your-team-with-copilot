@@ -1,8 +1,8 @@
-# AWS VPC Terraform Configuration
+# AWS VPC Terraform Configuration with CI/CD Pipeline
 
-This Terraform configuration creates a complete AWS VPC infrastructure with public and private subnets, following AWS best practices.
+This Terraform configuration creates a complete AWS VPC infrastructure with public and private subnets, following AWS best practices. It includes a comprehensive CI/CD pipeline for automated deployments across multiple environments.
 
-## Architecture
+## 🏗️ Architecture
 
 The configuration creates:
 
@@ -12,46 +12,67 @@ The configuration creates:
 - **1 Internet Gateway** for public internet access
 - **1 NAT Gateway** with Elastic IP for private subnet internet access
 - **Route Tables** with proper routing configuration
-- **VPC Flow Logs** for network monitoring (optional)
+- **VPC Flow Logs** for network monitoring
+
+## 🚀 CI/CD Pipeline
+
+### Deployment Flow
+1. **Security Scan**: Checkov security analysis (non-blocking)
+2. **Development**: Automatic deployment on main branch
+3. **QA**: Manual approval required
+4. **Production**: Manual approval required
+
+### Environment Configuration
+- `environments/dev.tfvars`: Development (cost-optimized, no NAT Gateway)
+- `environments/qa.tfvars`: QA environment (production-like)
+- `environments/prod.tfvars`: Production environment (full features)
+
+### Security Features
+- **Checkov scanning**: Automated security and compliance checks
+- **Environment isolation**: Separate Terraform state per environment
+- **Manual approvals**: Required for QA and production deployments
+- **Artifact storage**: Plans and outputs saved for review
 
 ## Prerequisites
 
 1. **Terraform** >= 1.0 installed
 2. **AWS CLI** configured with appropriate credentials
 3. **AWS Account** with permissions to create VPC resources
+4. **GitHub Secrets** configured for CI/CD:
+   - `AWS_ACCESS_KEY_ID`: AWS access key
+   - `AWS_SECRET_ACCESS_KEY`: AWS secret key
+   - `TF_STATE_BUCKET`: S3 bucket for Terraform state
 
 ## Quick Start
 
+### Local Development
 1. **Clone the repository and navigate to terraform directory:**
    ```bash
    cd terraform
    ```
 
-2. **Copy and customize the variables file:**
+2. **Initialize Terraform:**
    ```bash
-   cp terraform.tfvars.example terraform.tfvars
-   # Edit terraform.tfvars with your desired values
+   terraform init \
+     -backend-config="bucket=your-state-bucket" \
+     -backend-config="key=skills-copilot/dev/terraform.tfstate" \
+     -backend-config="region=us-west-2"
    ```
 
-3. **Initialize Terraform:**
+3. **Plan for specific environment:**
    ```bash
-   terraform init
+   terraform plan -var-file="environments/dev.tfvars"
    ```
 
-4. **Review the planned changes:**
+4. **Apply the configuration (dev only):**
    ```bash
-   terraform plan
+   terraform apply -var-file="environments/dev.tfvars"
    ```
 
-5. **Apply the configuration:**
-   ```bash
-   terraform apply
-   ```
-
-6. **To destroy the infrastructure when no longer needed:**
-   ```bash
-   terraform destroy
-   ```
+### CI/CD Deployment
+1. **Push to main branch** for automatic dev deployment
+2. **Approve QA deployment** in GitHub Actions
+3. **Approve production deployment** in GitHub Actions
 
 ## Configuration Variables
 
@@ -150,10 +171,24 @@ terraform/
 ├── main.tf                    # Main VPC and networking resources
 ├── variables.tf              # Variable definitions
 ├── outputs.tf               # Output definitions
-├── provider.tf              # Provider configuration
+├── provider.tf              # Provider and backend configuration
 ├── terraform.tfvars.example # Example variables file
-└── README.md                # This documentation
+├── validate.sh              # Validation script
+├── environments/            # Environment-specific configurations
+│   ├── dev.tfvars          # Development environment
+│   ├── qa.tfvars           # QA environment
+│   └── prod.tfvars         # Production environment
+└── README.md               # This documentation
 ```
+
+## CI/CD Workflow
+
+The GitHub Actions workflow (`.github/workflows/terraform-deploy.yml`) provides:
+
+- **Checkov Security Scanning**: Runs on every push/PR
+- **Multi-environment Planning**: Shows plans for all environments on PRs
+- **Progressive Deployment**: Dev → QA → Prod with approvals
+- **Artifact Management**: Saves plans and outputs for review
 
 ## Support
 

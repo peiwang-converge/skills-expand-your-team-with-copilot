@@ -7,6 +7,11 @@ terraform {
       version = "~> 5.0"
     }
   }
+
+  backend "s3" {
+    # Backend configuration will be provided during terraform init
+    # via command line parameters in the CI/CD pipeline
+  }
 }
 
 provider "aws" {
