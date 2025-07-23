@@ -1,0 +1,29 @@
+# Example Terraform variables file
+# Copy this file to terraform.tfvars and modify values as needed
+
+# AWS Region where resources will be created
+aws_region = "us-west-2"
+
+# Environment name (dev, staging, prod)
+environment = "dev"
+
+# Project name for resource naming
+project_name = "my-vpc-project"
+
+# VPC CIDR block - usual size for most projects
+vpc_cidr = "10.0.0.0/16"
+
+# Availability zones (will use first 2 from the region if not specified)
+# availability_zones = ["us-west-2a", "us-west-2b"]
+
+# Public subnet CIDR blocks
+public_subnet_cidrs = ["10.0.1.0/24", "10.0.2.0/24"]
+
+# Private subnet CIDR blocks  
+private_subnet_cidrs = ["10.0.10.0/24", "10.0.20.0/24"]
+
+# Enable NAT Gateway for private subnets (recommended for production)
+enable_nat_gateway = true
+
+# Enable VPN Gateway (optional)
+enable_vpn_gateway = false
