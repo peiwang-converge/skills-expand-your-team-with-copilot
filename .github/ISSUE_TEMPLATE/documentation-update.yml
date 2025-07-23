@@ -1,0 +1,186 @@
+name: 📚 Documentation Update
+description: Request updates, improvements, or additions to documentation
+title: "[DOCS] "
+labels: ["documentation", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve our documentation! This template will help you provide clear requirements for documentation updates that our Copilot coding agent can implement.
+
+  - type: dropdown
+    id: doc-type
+    attributes:
+      label: Documentation Type
+      description: What type of documentation needs to be updated?
+      options:
+        - User Guide/Instructions for Teachers
+        - User Guide/Instructions for Students
+        - Technical Setup/Installation Guide
+        - API Documentation
+        - Code Comments/Inline Documentation
+        - README Files
+        - Troubleshooting Guide
+        - FAQ/Frequently Asked Questions
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: update-type
+    attributes:
+      label: Type of Update Needed
+      description: What kind of documentation update is this?
+      options:
+        - New Documentation - Create documentation that doesn't exist
+        - Update Existing - Modify or improve existing documentation
+        - Fix Errors - Correct mistakes in current documentation
+        - Add Missing Information - Fill gaps in existing documentation
+        - Reorganize/Restructure - Improve organization of existing content
+        - Remove Outdated Content - Delete obsolete information
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-problem
+    attributes:
+      label: Current Problem
+      description: What is wrong with the current documentation (or what's missing)?
+      placeholder: |
+        Example: The user guide doesn't explain how teachers can view which students have signed up for activities. Teachers are confused about where to find this information and keep asking for help.
+    validations:
+      required: true
+
+  - type: textarea
+    id: target-audience
+    attributes:
+      label: Target Audience
+      description: Who is the primary audience for this documentation?
+      placeholder: |
+        Example: High school teachers who need to manage student activities and track participation, with varying levels of technical expertise.
+    validations:
+      required: true
+
+  - type: textarea
+    id: requested-content
+    attributes:
+      label: Requested Content/Changes
+      description: Describe what content should be added, changed, or removed
+      placeholder: |
+        Example: Add a section to the teacher guide that explains:
+        - How to access the student roster for each activity
+        - How to export participation lists
+        - How to view activity statistics
+        Include screenshots for each step.
+    validations:
+      required: true
+
+  - type: textarea
+    id: success-criteria
+    attributes:
+      label: Success Criteria
+      description: How will we know this documentation update is successful?
+      placeholder: |
+        - [ ] Teachers can independently find and access student participation data
+        - [ ] Documentation includes clear step-by-step instructions
+        - [ ] Screenshots show current interface (not outdated)
+        - [ ] FAQ section addresses common questions about student tracking
+      value: "- [ ] "
+    validations:
+      required: true
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgency Level
+      description: How urgently is this documentation needed?
+      options:
+        - High - Needed before next school term/semester
+        - Medium - Needed within the next month
+        - Low - Can be completed when convenient
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-location
+    attributes:
+      label: Current Documentation Location
+      description: If updating existing docs, where are they currently located?
+      placeholder: |
+        Example: 
+        - File: /docs/teacher-guide.md
+        - Section: "Managing Activities"
+        - Or: "No existing documentation for this topic"
+    validations:
+      required: false
+
+  - type: textarea
+    id: suggested-structure
+    attributes:
+      label: Suggested Structure/Outline
+      description: If you have ideas about how the documentation should be organized, share them here
+      placeholder: |
+        Example:
+        1. Introduction to Student Activity Management
+        2. Viewing Activity Rosters
+           2.1 Accessing the roster
+           2.2 Understanding the information displayed
+        3. Exporting Participation Data
+        4. Common Troubleshooting Issues
+        5. Frequently Asked Questions
+    validations:
+      required: false
+
+  - type: textarea
+    id: examples-needed
+    attributes:
+      label: Examples and Screenshots Needed
+      description: What specific examples, screenshots, or visual aids should be included?
+      placeholder: |
+        - Screenshot of the activities dashboard
+        - Example of a downloaded participation report
+        - Step-by-step screenshots for accessing student rosters
+        - Example email templates for communicating with parents
+    validations:
+      required: false
+
+  - type: textarea
+    id: related-docs
+    attributes:
+      label: Related Documentation
+      description: Are there other documents that should be updated at the same time or referenced?
+      placeholder: |
+        - Student user guide may need similar updates
+        - FAQ should be updated to match new instructions
+        - Setup guide may need to mention new features
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other information that would help with this documentation update
+      placeholder: |
+        - Common questions teachers have asked
+        - Previous feedback about confusing documentation
+        - Specific terminology that should be used (or avoided)
+        - Accessibility considerations for the documentation
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      description: Please confirm you have provided sufficient information
+      options:
+        - label: I have clearly described what documentation needs to be updated
+          required: true
+        - label: I have identified the target audience for this documentation
+          required: true
+        - label: I have provided success criteria for measuring completion
+          required: true
+        - label: I understand this documentation update will be handled by an automated coding agent
+          required: true

@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Ask a Question
+    url: https://github.com/peiwang-converge/skills-expand-your-team-with-copilot/discussions
+    about: Ask questions about using the school activities system
+  - name: 📖 Documentation
+    url: https://github.com/peiwang-converge/skills-expand-your-team-with-copilot/tree/main/docs
+    about: Check existing documentation and development guides
+  - name: 🚀 GitHub Copilot Help
+    url: https://docs.github.com/en/copilot
+    about: Learn more about GitHub Copilot and AI-assisted development

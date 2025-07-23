@@ -1,0 +1,101 @@
+name: 💡 General Request
+description: General request that doesn't fit other categories
+title: "[REQUEST] "
+labels: ["needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for your request! If your request fits one of our specific categories (Feature Enhancement, Bug Report, Documentation Update, or UI/UX Improvement), please use those templates instead as they provide better guidance for our Copilot coding agent.
+
+  - type: dropdown
+    id: request-type
+    attributes:
+      label: Type of Request
+      description: What category best describes your request?
+      options:
+        - Configuration/Settings Change
+        - Data Management/Database Update
+        - Security/Privacy Enhancement
+        - Performance Optimization
+        - Integration with External System
+        - Administrative/Backend Change
+        - Question/Clarification Needed
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: request-description
+    attributes:
+      label: Request Description
+      description: Clearly describe what you need
+      placeholder: |
+        Example: The system needs to automatically backup student activity data every week to prevent data loss. Currently there is no backup system in place.
+    validations:
+      required: true
+
+  - type: textarea
+    id: why-needed
+    attributes:
+      label: Why is this needed?
+      description: Explain the reasoning behind this request
+      placeholder: |
+        Example: We've had computer problems in the past that caused data loss. Having regular backups would protect student enrollment information and prevent having to recreate activity rosters manually.
+    validations:
+      required: true
+
+  - type: textarea
+    id: success-criteria
+    attributes:
+      label: Success Criteria
+      description: How will we know this request has been completed successfully?
+      placeholder: |
+        - [ ] Automated backup runs every Sunday at midnight
+        - [ ] Backup includes all student activity data
+        - [ ] Teachers receive email confirmation when backup completes
+        - [ ] Backup files are stored securely and can be restored if needed
+      value: "- [ ] "
+    validations:
+      required: true
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgency Level
+      description: How urgently is this needed?
+      options:
+        - High - Needed immediately or within 1 week
+        - Medium - Needed within 1 month
+        - Low - Can be completed when convenient
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other relevant information
+      placeholder: |
+        - Specific technical requirements
+        - Constraints or limitations to consider
+        - Impact on teachers, students, or system performance
+        - Related systems or processes that might be affected
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      description: Please confirm you have provided sufficient information
+      options:
+        - label: I have clearly described what I need
+          required: true
+        - label: I have explained why this is needed
+          required: true
+        - label: I have provided specific success criteria
+          required: true
+        - label: I understand this request will be handled by an automated coding agent
+          required: true

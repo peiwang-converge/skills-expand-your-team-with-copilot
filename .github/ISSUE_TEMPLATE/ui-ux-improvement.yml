@@ -1,0 +1,212 @@
+name: 🎨 UI/UX Improvement
+description: Request user interface or user experience improvements
+title: "[UI/UX] "
+labels: ["ui/ux", "enhancement", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a UI/UX improvement! This template will help you provide all the necessary information for our Copilot coding agent to understand and implement your design changes.
+
+  - type: dropdown
+    id: improvement-type
+    attributes:
+      label: Type of UI/UX Improvement
+      description: What type of improvement is this?
+      options:
+        - Visual Design/Styling
+        - Layout/Page Structure
+        - Navigation/Menu System
+        - Accessibility Enhancement
+        - Mobile/Responsive Design
+        - Color Scheme/Branding
+        - Typography/Text Display
+        - Form Design/Input Fields
+        - Button/Interactive Elements
+        - Loading States/Feedback
+        - Error Messages/Notifications
+        - Information Architecture
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: affected-pages
+    attributes:
+      label: Affected Pages/Components
+      description: Which parts of the application need this improvement?
+      multiple: true
+      options:
+        - Home/Landing Page
+        - Activities List Page
+        - Activity Details Page
+        - Sign-up Forms
+        - Navigation Header
+        - Footer
+        - Mobile Interface
+        - Error Pages
+        - Loading States
+        - All Pages
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-problem
+    attributes:
+      label: Current User Experience Problem
+      description: What specific issues do users (teachers/students) face with the current design?
+      placeholder: |
+        Example: Students have difficulty distinguishing between activities they've already signed up for and new activities because there's no visual indication. They often try to sign up for the same activity multiple times, causing confusion.
+    validations:
+      required: true
+
+  - type: textarea
+    id: target-users
+    attributes:
+      label: Target Users
+      description: Who would benefit from this improvement and how do they currently use the system?
+      placeholder: |
+        Example: High school students (ages 14-18) who primarily access the system on mobile devices during lunch breaks and between classes. They need to quickly scan available activities and sign up without confusion.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Visual/UX Solution
+      description: Describe how you think the interface should look and behave
+      placeholder: |
+        Example: 
+        - Activities student has signed up for should have a green checkmark icon and "Enrolled" badge
+        - The sign-up button should be disabled for enrolled activities
+        - Use different background colors: light green for enrolled, white for available
+        - Add a "My Activities" filter to show only enrolled activities
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: List specific, testable requirements for this UI/UX improvement
+      placeholder: |
+        Visual Requirements:
+        - [ ] Enrolled activities show green checkmark icon in top-right corner
+        - [ ] "Sign Up" button is replaced with "Enrolled" badge for signed-up activities
+        - [ ] Different background colors clearly distinguish activity states
+        
+        Functional Requirements:
+        - [ ] Visual changes update immediately after sign-up without page refresh
+        - [ ] Design works on both desktop and mobile devices
+        - [ ] Color choices meet accessibility contrast requirements
+        
+        User Experience Requirements:
+        - [ ] Users can quickly identify their enrollment status at a glance
+        - [ ] No confusion about whether they're already enrolled
+      value: "- [ ] "
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How important is this improvement for daily use?
+      options:
+        - High - Causes significant confusion or blocks tasks
+        - Medium - Noticeable improvement to user experience
+        - Low - Nice-to-have polish improvement
+    validations:
+      required: true
+
+  - type: textarea
+    id: design-requirements
+    attributes:
+      label: Design Requirements and Constraints
+      description: Any specific design requirements, brand guidelines, or constraints to consider
+      placeholder: |
+        - Must use school colors (white and lime green)
+        - Should maintain current overall layout structure
+        - Icons should be consistent with existing design
+        - Text must be readable for students with visual impairments
+        - Design should load quickly on slower mobile connections
+    validations:
+      required: false
+
+  - type: dropdown
+    id: device-priority
+    attributes:
+      label: Device Priority
+      description: Which devices are most important for this improvement?
+      options:
+        - Mobile First - Primarily used on phones/tablets
+        - Desktop First - Primarily used on computers
+        - Equal Priority - Used equally on all devices
+    validations:
+      required: true
+
+  - type: textarea
+    id: accessibility-considerations
+    attributes:
+      label: Accessibility Considerations
+      description: Any specific accessibility requirements or considerations for students with disabilities
+      placeholder: |
+        - Color-blind students should be able to distinguish activity states
+        - Screen reader users need clear status announcements
+        - Keyboard navigation should work for all interactive elements
+        - Text size should be adjustable for visually impaired students
+    validations:
+      required: false
+
+  - type: textarea
+    id: examples-inspiration
+    attributes:
+      label: Examples or Inspiration
+      description: Links to other websites, apps, or designs that demonstrate what you're looking for
+      placeholder: |
+        - Similar enrollment status design on course registration systems
+        - Color schemes from other educational platforms
+        - Icon styles that work well for this age group
+    validations:
+      required: false
+
+  - type: textarea
+    id: user-testing
+    attributes:
+      label: User Feedback/Testing
+      description: Any feedback from students or teachers about the current design?
+      placeholder: |
+        - "Students often ask 'Am I already signed up for this?'"
+        - "Teachers report students accidentally signing up multiple times"
+        - "Mobile users say the buttons are too small to tap accurately"
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other information that would help implement this improvement
+      placeholder: |
+        - Peak usage times when clear design is most important
+        - Specific challenges students face with current design
+        - Technical limitations to be aware of
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      description: Please confirm you have provided sufficient information
+      options:
+        - label: I have described the current user experience problem clearly
+          required: true
+        - label: I have provided specific visual/UX requirements
+          required: true
+        - label: I have included testable acceptance criteria
+          required: true
+        - label: I understand this UI/UX improvement will be handled by an automated coding agent
+          required: true
