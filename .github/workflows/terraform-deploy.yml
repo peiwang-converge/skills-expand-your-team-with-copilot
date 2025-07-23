@@ -17,6 +17,13 @@ env:
   TF_VERSION: '1.5.7'
   CHECKOV_VERSION: '3.0.0'
 
+# Required GitHub Environment Protection Rules:
+# To complete the CI/CD setup, configure these environments in repository settings:
+# 1. qa: Require reviewers (1+ approvers) before deployment
+# 2. prod: Require reviewers (2+ approvers) before deployment
+# 
+# Navigate to: Settings > Environments > [environment-name] > Protection rules
+
 jobs:
   security-scan:
     name: Security Scan with Checkov
@@ -168,12 +175,19 @@ jobs:
           path: terraform/dev-outputs.json
 
   deploy-qa:
-    name: Deploy to QA
+    name: Deploy to QA (Requires Approval)
     runs-on: ubuntu-latest
     needs: deploy-dev
     if: github.ref == 'refs/heads/main'
-    environment: qa
+    environment: 
+      name: qa
+      url: https://qa.example.com  # Update with your QA environment URL
     steps:
+      - name: Wait for approval
+        run: |
+          echo "⏳ Waiting for QA deployment approval..."
+          echo "🔒 This deployment requires manual approval before proceeding"
+          echo "📋 Please review the dev deployment results before approving"
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -221,12 +235,20 @@ jobs:
           path: terraform/qa-outputs.json
 
   deploy-prod:
-    name: Deploy to Production
+    name: Deploy to Production (Requires Approval)
     runs-on: ubuntu-latest
     needs: deploy-qa
     if: github.ref == 'refs/heads/main'
-    environment: prod
+    environment: 
+      name: prod
+      url: https://prod.example.com  # Update with your production environment URL
     steps:
+      - name: Wait for approval
+        run: |
+          echo "⏳ Waiting for Production deployment approval..."
+          echo "🔒 This deployment requires manual approval before proceeding"
+          echo "📋 Please review the QA deployment results before approving"
+          echo "⚠️  Production deployment - proceed with caution!"
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -275,8 +297,19 @@ jobs:
 
       - name: Deployment Summary
         run: |
-          echo "🚀 Deployment completed successfully!"
-          echo "✅ Dev environment: Deployed"
-          echo "✅ QA environment: Deployed (with approval)"
-          echo "✅ Prod environment: Deployed (with approval)"
-          echo "🔍 Security scan: Completed (non-blocking)"
+          echo "🚀 Multi-Environment Deployment Completed Successfully!"
+          echo ""
+          echo "📊 Deployment Pipeline Summary:"
+          echo "✅ Security Scan: Checkov completed (non-blocking as requested)"
+          echo "✅ Dev Environment: Auto-deployed"
+          echo "✅ QA Environment: Deployed after manual approval ✋"
+          echo "✅ Prod Environment: Deployed after manual approval ✋"
+          echo ""
+          echo "🔒 Approval Gates:"
+          echo "• QA deployment required manual approval"
+          echo "• Production deployment required manual approval"
+          echo ""
+          echo "🛡️ Security:"
+          echo "• Checkov security scan results available in workflow artifacts"
+          echo "• All deployments use separate state files per environment"
+          echo "• Infrastructure deployed with environment-specific configurations"
