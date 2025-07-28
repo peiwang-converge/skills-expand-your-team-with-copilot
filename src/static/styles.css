@@ -32,6 +32,40 @@
   --info-light: #d1ecf1;
 }
 
+/* Dark mode color palette */
+.dark-mode {
+  /* Primary colors - Adjusted for dark mode */
+  --primary: #4ade80;
+  --primary-light: #86efac;
+  --primary-dark: #22c55e;
+  --primary-text: #000000;
+
+  /* Secondary colors */
+  --secondary: #4ade80;
+  --secondary-light: #86efac;
+  --secondary-dark: #22c55e;
+  --secondary-text: #000000;
+
+  /* Neutral colors - Dark theme */
+  --background: #1a1a1a;
+  --surface: #2a2a2a;
+  --text-primary: #e5e5e5;
+  --text-secondary: #a3a3a3;
+  --border: #404040;
+  --border-light: #333333;
+  --border-focus: #4ade80;
+
+  /* Feedback colors - Adjusted for dark mode */
+  --success: #22c55e;
+  --success-light: #1f2937;
+  --warning: #f59e0b;
+  --warning-light: #1f2937;
+  --error: #ef4444;
+  --error-light: #1f2937;
+  --info: #3b82f6;
+  --info-light: #1f2937;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -617,6 +651,9 @@ footer {
   position: absolute;
   top: 10px;
   right: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 #user-status {
@@ -650,8 +687,14 @@ footer {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-.user-icon {
+.user-icon, .theme-icon {
   font-size: 1rem;
+}
+
+#dark-mode-toggle {
+  padding: 6px 8px;
+  min-width: 32px;
+  justify-content: center;
 }
 
 #logout-button {
@@ -724,5 +767,16 @@ body::before {
   
   .mascot {
     max-width: 60px;
+  }
+
+  #user-controls {
+    position: static;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 8px;
+  }
+
+  #dark-mode-toggle {
+    padding: 8px 10px;
   }
 }
