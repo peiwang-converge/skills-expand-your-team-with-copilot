@@ -174,6 +174,42 @@ initial_activities = {
         },
         "max_participants": 15,
         "participants": []
+    },
+    "Beginner Chess Workshop": {
+        "description": "Learn the basics of chess: piece movements, basic strategies, and simple tactics. Perfect for newcomers!",
+        "schedule": "Saturdays, 9:00 AM - 10:30 AM",
+        "schedule_details": {
+            "days": ["Saturday"],
+            "start_time": "09:00",
+            "end_time": "10:30"
+        },
+        "max_participants": 16,
+        "participants": ["sarah@mergington.edu"],
+        "difficulty": "Beginner"
+    },
+    "Advanced Programming Lab": {
+        "description": "Deep dive into advanced programming concepts including algorithms, data structures, and software architecture.",
+        "schedule": "Sundays, 1:00 PM - 4:00 PM",
+        "schedule_details": {
+            "days": ["Sunday"],
+            "start_time": "13:00",
+            "end_time": "16:00"
+        },
+        "max_participants": 12,
+        "participants": ["alex@mergington.edu", "jordan@mergington.edu"],
+        "difficulty": "Advanced"
+    },
+    "Intermediate Art Studio": {
+        "description": "Build upon basic art skills with intermediate techniques in painting, drawing, and mixed media.",
+        "schedule": "Wednesdays, 4:00 PM - 6:00 PM",
+        "schedule_details": {
+            "days": ["Wednesday"],
+            "start_time": "16:00",
+            "end_time": "18:00"
+        },
+        "max_participants": 14,
+        "participants": ["taylor@mergington.edu", "casey@mergington.edu", "morgan@mergington.edu"],
+        "difficulty": "Intermediate"
     }
 }
 
